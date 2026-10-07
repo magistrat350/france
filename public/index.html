@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mot à mot</title>
+  <meta name="theme-color" content="#1f3a8a">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231f3a8a'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Georgia'>M</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#/">Mot <span>à</span> mot</a>
+      <a class="counter" href="#/" title="Gelernte Wörter">
+        <span class="counter-num" id="hc-count">0</span>
+        <span class="counter-label">Wörter<br><small id="hc-today"></small></span>
+      </a>
+    </div>
+    <div class="milestone-bar" title="Fortschritt bis zum nächsten Meilenstein"><div id="hc-bar"></div></div>
+    <nav class="tabs">
+      <a href="#/" data-route="dashboard">Übersicht</a>
+      <a href="#/lernen" data-route="lernen">Lernen</a>
+      <a href="#/vokabeln" data-route="vokabeln">Vokabeln</a>
+      <a href="#/podcasts" data-route="podcasts">Podcasts</a>
+      <a href="#/aufgaben" data-route="aufgaben">Aufgaben</a>
+    </nav>
+  </header>
+
+  <main id="view" class="container" aria-live="polite"></main>
+
+  <div id="player" class="player" hidden>
+    <div class="player-inner">
+      <div class="player-title" id="player-title"></div>
+      <div class="player-controls">
+        <button class="btn ghost small" data-action="seek" data-delta="-10" title="10 Sekunden zurück">−10s</button>
+        <audio id="audio" controls preload="metadata"></audio>
+        <button class="btn ghost small" data-action="seek" data-delta="10" title="10 Sekunden vor">+10s</button>
+        <select id="speed" title="Geschwindigkeit">
+          <option value="0.75">0,75×</option>
+          <option value="0.9">0,9×</option>
+          <option value="1" selected>1×</option>
+          <option value="1.1">1,1×</option>
+          <option value="1.25">1,25×</option>
+        </select>
+        <button class="btn ghost small" data-action="close-player" title="Player schließen">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
